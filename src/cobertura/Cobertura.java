@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Cobertura {
     
-    public static ArrayList ACO(Grafo grafo){
+    public static ArrayList coberturaAprox(Grafo grafo){
         ArrayList S = new ArrayList();
         ArrayList E = grafo.getA();
         while(!E.isEmpty()){
@@ -20,7 +20,19 @@ public class Cobertura {
         return aristas.get(r);
     }
 
-    private static ArrayList eliminarIncidentes(ArrayList E, Arista arista) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private static ArrayList eliminarIncidentes(ArrayList<Arista> E, Arista arista) {
+        int i = 0;
+        while(i < E.size()) {
+            if(comparteVertice(E.get(i), arista)){
+                E.remove(i);
+            }else{
+                i++;
+            }
+        }
+        return E;
+    }
+    
+    private static boolean comparteVertice(Arista a, Arista b){
+        return (a.getU() == b.getU() || a.getU() == b.getV() || a.getV() == b.getU() || a.getV() == b.getV());
     }
 }

@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Grafo {
-    ArrayList<Arista> A;
+    private ArrayList<Arista> A;
 
     public Grafo(ArrayList A) {
         this.A = A;

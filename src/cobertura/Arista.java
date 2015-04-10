@@ -25,5 +25,9 @@ class Arista {
     public void setV(int v) {
         this.v = v;
     }
-    
+
+    @Override
+    public String toString() {
+        return "{"+u+","+v+"}";
+    }
 }
